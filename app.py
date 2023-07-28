@@ -12,7 +12,7 @@ data = pd.read_csv("model/data.csv")
 def predict():
     json_ = request.json
     prediction = spotify_service.recommend_songs(json_, data)
-    return jsonify({'prediction': [1, 2, 3]})
+    return jsonify({'prediction': list(prediction)})
 
 
 if __name__ == '__main__':

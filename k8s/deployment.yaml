@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: music-recommendation
+  labels:
+    app : my-k8s-music-recommendation
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: music-recommendation
   template:
     metadata:
       labels:
-        app: my-app
+        app: music-recommendation
     spec:
       containers:
-        - name: my-app
+        - name: music-recommendation
           image: diocsin/my_app:latest
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: regcred

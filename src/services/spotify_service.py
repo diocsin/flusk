@@ -12,7 +12,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="2b99d59c5e
 number_cols = ['valence', 'year', 'acousticness', 'danceability', 'duration_ms', 'energy', 'explicit',
                'instrumentalness', 'key', 'liveness', 'loudness', 'mode', 'popularity', 'speechiness', 'tempo']
 
-song_cluster_pipeline = joblib.load('model/song_cluster_pipeline.pkl')
+song_cluster_pipeline = joblib.load('src/ml_model/song_cluster_pipeline.pkl')
+
+spotify_data = pd.read_csv("src/ml_model/data.csv")
 
 
 def find_song(name, year):
@@ -74,7 +76,7 @@ def flatten_dict_list(dict_list):
     return flattened_dict
 
 
-def recommend_songs(song_list, spotify_data, n_songs=10):
+def recommend_songs(song_list, n_songs=10):
     metadata_cols = ['name', 'year', 'artists']
     song_dict = flatten_dict_list(song_list)
 

@@ -6,6 +6,7 @@ from scipy.spatial.distance import cdist
 import pandas as pd
 import joblib
 
+
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="2b99d59c5e774b1f9e4d54109b0b2f49",
                                                            client_secret="ed296f5c9e094522a9b134615f8a4dbc"))
 
